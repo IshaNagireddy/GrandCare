@@ -5,6 +5,7 @@ import 'package:apps_for_good/intro_screens/intro_page_3.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -53,13 +54,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  child: Text('skip'),
+                  child: Text(
+                    'skip',
+                    style: GoogleFonts.poppins(
+                        color: Color.fromARGB(255, 229, 243, 255)),
+                  ),
                 ),
+
                 //dot indicator
                 SmoothPageIndicator(
                   controller: _controller,
                   count: 3,
-                  effect: ExpandingDotsEffect(),
+                  effect: ExpandingDotsEffect(
+                    dotColor: Colors.white,
+                    activeDotColor: Colors.white,
+                  ),
                 ),
 
                 //next/done
@@ -76,7 +85,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             ),
                           );
                         },
-                        child: Text('done'),
+                        child: Text(
+                          'done',
+                          style: GoogleFonts.poppins(
+                            color: Color.fromARGB(255, 229, 243, 255),
+                          ),
+                        ),
                       )
                     : GestureDetector(
                         onTap: () {
@@ -84,7 +98,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               duration: Duration(milliseconds: 500),
                               curve: Curves.easeIn);
                         },
-                        child: Text('next'),
+                        child: Text(
+                          'next',
+                          style: GoogleFonts.poppins(
+                            color: Color.fromARGB(255, 229, 243, 255),
+                          ),
+                        ),
                       )
               ],
             ),
