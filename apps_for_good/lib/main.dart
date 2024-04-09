@@ -1,5 +1,3 @@
-
-import 'package:apps_for_good/login_page.dart';
 import 'package:flutter/material.dart';
 import 'onboarding_screen.dart';
 
