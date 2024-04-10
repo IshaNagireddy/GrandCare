@@ -1,13 +1,21 @@
 
 import 'package:apps_for_good/login_page.dart';
 import 'package:flutter/material.dart';
+import 'onboarding_screen.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color.fromARGB(255, 14, 37, 57),),
-      home: LoginPage(),
-    )
-  );
+      home: OnBoardingScreen(),
+    );
+  }
 }
