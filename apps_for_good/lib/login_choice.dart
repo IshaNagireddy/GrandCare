@@ -1,6 +1,8 @@
+import 'package:apps_for_good/admin_login.dart';
+import 'package:apps_for_good/grandparent_login.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginChoice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -42,7 +44,7 @@ class LoginPage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => AdminLogin()));},
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         color: Colors.white,
@@ -73,7 +75,9 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => GrandparentLogin()));
+                    },
                     color: Color.fromARGB(255, 229, 243, 255),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
