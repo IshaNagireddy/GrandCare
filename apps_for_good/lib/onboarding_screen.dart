@@ -99,7 +99,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               curve: Curves.easeIn);
                         },
                         child: Text(
-                          'next',
+                          ' next',
                           style: GoogleFonts.poppins(
                             color: Color.fromARGB(255, 229, 243, 255),
                           ),
