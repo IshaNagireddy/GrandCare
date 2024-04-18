@@ -1,7 +1,8 @@
-import 'package:apps_for_good/home_page.dart';
+
 import 'package:apps_for_good/intro_screens/intro_page_1.dart';
 import 'package:apps_for_good/intro_screens/intro_page_2.dart';
 import 'package:apps_for_good/intro_screens/intro_page_3.dart';
+import 'package:apps_for_good/login_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -78,7 +79,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Navigator.push(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (_, __, ___) => HomePage(),
+                              pageBuilder: (_, __, ___) => LoginChoice(),
                               transitionDuration: Duration(milliseconds: 500),
                               transitionsBuilder: (_, a, __, c) =>
                                   FadeTransition(opacity: a, child: c),
