@@ -98,16 +98,6 @@ class GrandparentLogin extends StatelessWidget {
                 )
               ]
             ),
-
-            Container(
-              height: MediaQuery.of(context).size.height / 3,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/loginImage2.png'),
-                  fit: BoxFit.cover
-                )
-              )
-            )
           ]
         )
       ),

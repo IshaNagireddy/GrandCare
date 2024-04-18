@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class LoginChoice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 14, 37, 57),
       body: SafeArea(
         child: Container(
           width: double.infinity,
