@@ -1,9 +1,26 @@
-import 'package:GrandCare/new_grandparent.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-class GrandparentLogin extends StatelessWidget {
-  String password = '';
+
+class NewGrandparent extends StatefulWidget {
+  const NewGrandparent({Key? key}): super(key: key);
+
+  State<NewGrandparent> createState() => _NewGrandparentState();
+  }
+
+class _NewGrandparentState extends State<NewGrandparent> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordAgainController = TextEditingController();
+
+  late DatabaseReference database_reference;
+
+  @override
+  void initState() {
+    super.initState();
+    database_reference = FirebaseDatabase.instance.ref().child('New Users');  
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -30,13 +47,13 @@ class GrandparentLogin extends StatelessWidget {
               children: <Widget> [
                 const Column(
                   children: <Widget>[
-                    Text("Grandparent Login", style: TextStyle(
+                    Text("New Grandparent", style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),),
                     SizedBox(height: 20),
-                    Text("Login to your account", style: TextStyle(
+                    Text("Sign up for a new account", style: TextStyle(
                       fontSize: 15,
                       color: Colors.white
                     ),),
@@ -47,8 +64,9 @@ class GrandparentLogin extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
                   child: Column(
                     children: <Widget> [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password", obscureText: true),
+                      makeInput(label: "Email", obscureText: false, fieldType: emailController),
+                      makeInput(label: "New Password", obscureText: true, fieldType: passwordController),
+                      makeInput(label: "Re-enter password", obscureText: true, fieldType: passwordAgainController),
                   ]
                   )
                 ),
@@ -70,7 +88,15 @@ class GrandparentLogin extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
+                      debugPrint(emailController.text);
+                      debugPrint(passwordAgainController.text);
 
+                      Map<String, String> newUser = {
+                        'email' : emailController.text,
+                        'password' : passwordAgainController.text
+                      };
+                      database_reference.push().set(newUser);
+                      _showImageAlertDialog(context);
                     },
                     color: const Color.fromARGB(255, 229, 243, 255),
                     elevation: 0,
@@ -78,7 +104,7 @@ class GrandparentLogin extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Login", style: TextStyle(
+                    child: const Text("Submit Information", style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),),
@@ -86,26 +112,6 @@ class GrandparentLogin extends StatelessWidget {
                 )
                 ), 
                 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget> [
-                    const Text("Don't have an account?", style: TextStyle(
-                      color: Colors.white
-                    )),
-                    TextButton (
-                      child: const Text(
-                         "Sign Up", 
-                         style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Colors.white
-                      ),),
-                      onPressed: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (context) => NewGrandparent()));
-                      },
-                    )
-                  ]
-                )
               ]
             ),
 
@@ -115,7 +121,7 @@ class GrandparentLogin extends StatelessWidget {
     );
   }
 
-  Widget makeInput({label, obscureText = false}) {
+  Widget makeInput({label, obscureText = false, fieldType}) {
     return Column(
       children: <Widget> [
         Text(label, style: const TextStyle(
@@ -125,6 +131,7 @@ class GrandparentLogin extends StatelessWidget {
         ),),
         const SizedBox(height: 5,),
         TextField(
+          controller: fieldType,
           obscureText: obscureText,
           cursorColor: Colors.white,
           style: const TextStyle(color: Colors.white),
@@ -143,5 +150,35 @@ class GrandparentLogin extends StatelessWidget {
 
       ]
     );
+  }
+
+  void _showImageAlertDialog(BuildContext context) { 
+    showDialog( 
+      context: context, 
+      builder: (BuildContext context) { 
+        return AlertDialog( 
+          title: const Text('Thank you for submitting!'), 
+          content: Column( 
+            mainAxisSize: MainAxisSize.min, 
+            children: <Widget>[ 
+              Image.asset( 
+                'assets/greentick-unscreen.gif', // Replace with your image path 
+                width: 150, // Adjust image width as needed 
+              ), 
+              const SizedBox(height: 16), // Adjust spacing as needed 
+              const Text('Your account has been created.'), 
+            ], 
+          ), 
+          actions: <Widget>[ 
+            ElevatedButton( 
+              onPressed: () { 
+                Navigator.of(context).pop(); // Close the AlertDialog 
+              }, 
+              child: const Text('Close'), 
+            ), 
+          ], 
+        ); 
+      }, 
+    ); 
   }
 }

@@ -1,4 +1,4 @@
-package com.example.apps_for_good
+package com.example.GrandCare
 
 import io.flutter.embedding.android.FlutterActivity
 
