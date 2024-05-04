@@ -3,43 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:GrandCare/main.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-
-class Requests_Page extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Make a Request')),
-      drawer: AppDrawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Use this page to request services from the MCAA.'
-              '\n //Textual information on this service is to be provided in a later iteration',
-              textAlign: TextAlign.center, // Align text in the center
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Widget088()),
-                );
-              },
-              child: const Text('Back to Home'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-
 class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,10 +16,11 @@ class Calendar extends StatelessWidget {
   Widget content() {
     return Column(
       children: [
-        const Text("This is the calendar page. Schedule appointments with MCAA support staff."),
+        const Text(
+            "This is the calendar page. Schedule appointments with MCAA support staff."),
         Container(
           child: TableCalendar(
-            focusedDay: DateTime.now(), 
+            focusedDay: DateTime.now(),
             firstDay: DateTime.utc(2024, 1, 1),
             lastDay: DateTime.utc(2100, 1, 1),
           ),
@@ -65,8 +29,6 @@ class Calendar extends StatelessWidget {
     );
   }
 }
-
-
 
 class Benefits_Navigation extends StatelessWidget {
   @override
@@ -102,7 +64,6 @@ class Benefits_Navigation extends StatelessWidget {
     );
   }
 }
-
 
 class Clothing_Household_Goods extends StatelessWidget {
   @override
