@@ -1,6 +1,11 @@
+import 'package:GrandCare/admin_view.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AdminLogin extends StatelessWidget {
+final TextEditingController emailController = TextEditingController();
+final TextEditingController passwordController = TextEditingController();
+
 Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -44,8 +49,10 @@ Widget build(BuildContext context) {
                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
                   child: Column(
                     children: <Widget> [
-                      makeInput(label: "Email"),
-                      makeInput(label: "Password", obscureText: true),
+                      makeInput(label: "Email", fieldType: emailController),
+                      makeInput(label: "Password", fieldType: passwordController, obscureText: true),
+
+
                   ]
                   )
                 ),
@@ -66,7 +73,19 @@ Widget build(BuildContext context) {
                     child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
-                    onPressed: () {},
+                    onPressed: () async {
+                     String? result = await login(email: emailController.text, password: passwordController.text);
+                     if (result == "Success") {
+                      // ignore: use_build_context_synchronously
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AdminView()));
+                     }
+
+                     else {
+                      // ignore: use_build_context_synchronously
+                      _showImageAlertDialog(context);
+                      
+                    }
+                    },
                     color: const Color.fromARGB(255, 229, 243, 255),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -90,7 +109,7 @@ Widget build(BuildContext context) {
     );
   }
 
-  Widget makeInput({label, obscureText = false}) {
+   Widget makeInput({label, obscureText = false, fieldType}) {
     return Column(
       children: <Widget> [
         Text(label, style: const TextStyle(
@@ -100,6 +119,7 @@ Widget build(BuildContext context) {
         ),),
         const SizedBox(height: 5,),
         TextField(
+          controller: fieldType,
           obscureText: obscureText,
           cursorColor: Colors.white,
           style: const TextStyle(color: Colors.white),
@@ -118,5 +138,58 @@ Widget build(BuildContext context) {
 
       ]
     );
+  }
+
+  Future<String?> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return 'Success';
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        return 'Wrong password provided for that user.';
+      } else {
+        return e.message;
+      }
+    } catch (e) {
+      return e.toString();
+    }
+  }
+
+   void _showImageAlertDialog(BuildContext context) { 
+    showDialog( 
+      context: context, 
+      builder: (BuildContext context) { 
+        return AlertDialog( 
+          title: const Text('Incorrect password!'), 
+          content: Column( 
+            mainAxisSize: MainAxisSize.min, 
+            children: <Widget>[ 
+              Image.asset( 
+                'assets/Y6ez38CH2M.gif', // Replace with your image path 
+                width: 150, // Adjust image width as needed 
+              ), 
+              const SizedBox(height: 16), // Adjust spacing as needed 
+              const Text('Please re-enter your username and password.'), 
+            ], 
+          ), 
+          actions: <Widget>[ 
+            ElevatedButton( 
+              onPressed: () { 
+                Navigator.of(context).pop(); // Close the AlertDialog 
+              }, 
+              child: const Text('Close'), 
+            ), 
+          ], 
+        ); 
+      }, 
+    ); 
   }
 }
