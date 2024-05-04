@@ -1,8 +1,9 @@
 
-import 'package:apps_for_good/intro_screens/intro_page_1.dart';
-import 'package:apps_for_good/intro_screens/intro_page_2.dart';
-import 'package:apps_for_good/intro_screens/intro_page_3.dart';
-import 'package:apps_for_good/login_choice.dart';
+import 'package:GrandCare/intro_screens/intro_page_1.dart';
+import 'package:GrandCare/intro_screens/intro_page_2.dart';
+import 'package:GrandCare/intro_screens/intro_page_3.dart';
+import 'package:GrandCare/login_choice.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

@@ -1,5 +1,5 @@
-import 'package:GrandCare/admin_login.dart';
-import 'package:GrandCare/grandparent_login.dart';
+import 'package:apps_for_good/admin_login.dart';
+import 'package:apps_for_good/grandparent_login.dart';
 import 'package:flutter/material.dart';
 
 class LoginChoice extends StatelessWidget {
