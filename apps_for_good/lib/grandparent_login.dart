@@ -1,9 +1,7 @@
-import 'package:GrandCare/new_grandparent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class GrandparentLogin extends StatelessWidget {
-  String password = '';
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -49,12 +47,13 @@ class GrandparentLogin extends StatelessWidget {
                     children: <Widget> [
                       makeInput(label: "Email"),
                       makeInput(label: "Password", obscureText: true),
+                       makeInput(label: "Code", obscureText: true),
                   ]
                   )
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
                   child:  Container(
                     padding: const EdgeInsets.only(top: 3, left: 3),
                     decoration: BoxDecoration(
@@ -69,9 +68,7 @@ class GrandparentLogin extends StatelessWidget {
                     child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     color: const Color.fromARGB(255, 229, 243, 255),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
@@ -86,24 +83,17 @@ class GrandparentLogin extends StatelessWidget {
                 )
                 ), 
                 
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget> [
-                    const Text("Don't have an account?", style: TextStyle(
+                    Text("Don't have an account?", style: TextStyle(
                       color: Colors.white
                     )),
-                    TextButton (
-                      child: const Text(
-                         "Sign Up", 
-                         style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                        color: Colors.white
-                      ),),
-                      onPressed: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (context) => NewGrandparent()));
-                      },
-                    )
+                    Text(" Sign up", style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Colors.white
+                    ))
                   ]
                 )
               ]
