@@ -1,5 +1,6 @@
 import 'package:GrandCare/admin_login.dart';
 import 'package:GrandCare/grandparent_login.dart';
+import 'package:GrandCare/resources_menu.dart';
 import 'package:flutter/material.dart';
 
 class LoginChoice extends StatelessWidget {
@@ -90,7 +91,10 @@ class LoginChoice extends StatelessWidget {
                       fontSize: 18
                     ),),
                   ),
-                  )
+                  ),
+
+                  const SizedBox(height: 20),
+
 
                 ],
               ),

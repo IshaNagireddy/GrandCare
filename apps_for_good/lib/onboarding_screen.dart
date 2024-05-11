@@ -17,7 +17,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   //controller to keep track of page #
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
 
   //keep track of last page status
   bool onLastPage = false;
