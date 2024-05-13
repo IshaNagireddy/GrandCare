@@ -48,7 +48,7 @@ class FormScreenState extends State<Requests_Page> {
     return Scaffold(
       
       appBar: AppBar(
-        title: Text('Requests Page'),
+        title: Text('Requests Page', style: GoogleFonts.poppins()),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),

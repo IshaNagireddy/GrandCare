@@ -41,7 +41,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
   Widget build(BuildContext context) {
      return Scaffold(appBar: AppBar(
         title: Text('Calendar & Appointments', style: GoogleFonts.poppins(
-                 fontSize: 12,),),
+                 ),),
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
@@ -55,19 +55,27 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             children: <Widget> [
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
-                  Text('GrandCare Calendar', style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                  Text('GrandCare Calendar', style: GoogleFonts.poppins(
                     fontSize: 30,
                     color: Colors.white
                   ),),
+                  Container(
+                      
+                      width:
+                          100, // Set the width to make the divider shorter horizontally
+                      child: Divider(
+                        color: Colors.grey,
+                        height: 20.0, // Adjust the height as needed
+                      ),
+                    ),
                   SizedBox(height: 20,),
                   Text("Please view the GrandCare appointments calendar and schedule a time for meeting with a counselor that is available.",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 15
                   ),),
@@ -86,9 +94,9 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
               Column(
                 children: <Widget> [
                   const SizedBox(height: 20),
-                  const Text("After you have seen a time that works for both you and an available counselor, pleae click below to schedule your meeting.",
+                  Text("After you have seen a time that works for both you and an available counselor, pleae click below to schedule your meeting.",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 15
                   ),),
@@ -108,7 +116,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Schedule an Appointment", style: TextStyle(
+                    child:  Text("Schedule an Appointment", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
                       color: Colors.white,

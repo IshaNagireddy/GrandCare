@@ -154,7 +154,7 @@ class ResourcesMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('General CMAA Servies and Programs'),
+        title: Text('General CMAA Services and Programs',style: GoogleFonts.poppins(),),
       ),
       body: MyHomePage(),
       backgroundColor: Color.fromARGB(255, 14, 37, 57), // Use MyHomePage as the body of the Scaffold
@@ -185,14 +185,14 @@ class _MyHomePageState extends State<MyHomePage> {
     'This program focuses on elders living in unsafe housing who are at risk for their health and safety, expanding housing options for those who want to remain in their own residence.',
     'Provides free legal assistance to elders on many issues including benefits, housing, civil matters, Medicaid/Medicare eligibility, and elder abuse and nursing home issues. Conducts education programs and distributes literature on critical topics as well.',
     'Provides money management services to elders in need.',
-    'Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.',
-    'Morbi lectus risus, iaculis vel dui eget, placerat congue leo.',
-    'Curabitur blandit mollis enim. Praesent pretium, pede vel vehicula condimentum, ultrices risus interdum leo.',
-    'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.',
-    'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
-    'Mauris ullamcorper aliquet lacus. Vivamus sit amet tortor eget felis egestas semper.',
-    'Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.',
-    'Nunc ut orci ridiculus, dapibus non dui.',
+    'This program is counseling, referral and support for elders in immediate critical need. Crisis intervention provides crisis case management; training to providers, especially minority programs; and purchase of emergency services.',
+    'The Nutrition Project serves congregate and home delivered meals to elders in their service area.',
+    'The Family Caregiver Support Program empowers elders and caregivers to manage the personal, social, and economic challenges of caring for an elderly parent, relative, or friend by providing information, education, support, and services that enhances quality of life, prevent premature institutionalization and promote elders independence in the community.',
+    'The guardianship program provides guardianship/conservator services to frail elders who are adjudicated to be incompetent. Professional staff conduct evaluations, act as guardians, consult with caregivers and elder service providers as to options on referrals, provide training and community education.',
+    'Service Area: Fitchburg & Leominster. Services include outreach, information and assistance, home visits, interpretation, and translation. One of the key aspects of the program is to prevent social isolation and increase elder involvement in the community.',
+    'Provides public presentations on medication management issues as well as one to one consultation with elders where needed. In addition, MassMedLine has developed educational media regarding medication management for distribution throughout Central Massachusetts.',
+    'Designed to reduce the fear of falling and increase the activity levels of older adults who have concerns about falls.',
+    'For adults living with challenges of chronic conditions and learn techniques for dealing with issues such as pain, fatigue and difficult emotions.',
   ];
 
 int selectedIndex = 0;
@@ -235,7 +235,7 @@ int selectedIndex = 0;
          children: [
   Expanded(
     child: Padding(
-      padding: const EdgeInsets.all(5.0), // Increased padding to make the button bigger
+      padding: const EdgeInsets.all(15.0), // Increased padding to make the button bigger
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
@@ -267,6 +267,7 @@ int selectedIndex = 0;
       ),
     ),
   ),
+  
   Expanded(
     child: Padding(
       padding: const EdgeInsets.all(15.0), // Increased padding to make the button bigger
@@ -283,7 +284,7 @@ int selectedIndex = 0;
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             title: Text(
-              'Calendar\n&\nappointments',
+              'Calendar\n&\n Appointments ',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
@@ -392,8 +393,24 @@ int selectedIndex = 0;
             ),
           )).toList(),
         ),
+        Container(
+                      width:
+                          100, // Set the width to make the divider shorter horizontally
+                      child: Divider(
+                        color: Colors.grey,
+                        height: 20.0, // Adjust the height as needed
+                      ),
+                    ),
          Text(
                       'Click on a tile to learn more.',
+                       style: GoogleFonts.poppins(
+                 fontSize: 12, // Adjust the font size as needed
+      
+                color: Color.fromARGB(255, 229, 243, 255),
+              ),
+         ),
+           Text(
+                      'Swipe between tiles to see all our services.',
                        style: GoogleFonts.poppins(
                  fontSize: 12, // Adjust the font size as needed
       

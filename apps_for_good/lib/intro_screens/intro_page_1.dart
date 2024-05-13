@@ -15,10 +15,10 @@ class IntroPage1 extends StatelessWidget {
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
                 fontSize: 30,
-                color: Color.fromARGB(255, 229, 243, 255),
+                color: const Color.fromARGB(255, 229, 243, 255),
               ),
             ),
-            Image(
+            const Image(
               image: AssetImage("assets/logo.png"),
             ),
           ],
