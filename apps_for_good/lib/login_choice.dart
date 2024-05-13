@@ -2,6 +2,7 @@ import 'package:GrandCare/admin_login.dart';
 import 'package:GrandCare/grandparent_login.dart';
 import 'package:GrandCare/resources_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginChoice extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -14,19 +15,19 @@ class LoginChoice extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             children: <Widget> [
-              const Column(
+               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
-                  Text('Welcome to GrandCare!', style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                  Text('Welcome to GrandCare!',
+                  textAlign: TextAlign.center, style: GoogleFonts.poppins(
+                    fontSize: 28.25,
                     color: Colors.white
                   ),),
                   SizedBox(height: 20,),
                   Text("Sign-in to access specific services and resources",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 15
                   ),),
@@ -54,7 +55,7 @@ class LoginChoice extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Admin Login", style: TextStyle(
+                    child:  Text("Admin Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
                       color: Colors.white,
@@ -86,7 +87,7 @@ class LoginChoice extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Grandparent Login", style: TextStyle(
+                    child:  Text("Grandparent Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 18
                     ),),

@@ -2,6 +2,8 @@ import 'package:GrandCare/resources_menu.dart';
 import 'package:GrandCare/new_grandparent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class GrandparentLogin extends StatelessWidget {
   String password = '';
@@ -29,15 +31,15 @@ class GrandparentLogin extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget> [
-                const Column(
+                Column(
                   children: <Widget>[
-                    Text("Grandparent Login", style: TextStyle(
+                    Text("Grandparent Login", style: GoogleFonts.poppins(
                       fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),),
                     SizedBox(height: 20),
-                    Text("Login to your account", style: TextStyle(
+                    Text("Login to your account", style: GoogleFonts.poppins(
                       fontSize: 15,
                       color: Colors.white
                     ),),
@@ -79,7 +81,7 @@ class GrandparentLogin extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Login", style: TextStyle(
+                    child:Text("Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),),
@@ -90,13 +92,13 @@ class GrandparentLogin extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget> [
-                    const Text("Don't have an account?", style: TextStyle(
+                    Text("Don't have an account?", style: GoogleFonts.poppins(
                       color: Colors.white
                     )),
                     TextButton (
-                      child: const Text(
+                      child: Text(
                          "Sign Up", 
-                         style: TextStyle(
+                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                         fontSize: 18,
                         color: Colors.white
@@ -119,7 +121,7 @@ class GrandparentLogin extends StatelessWidget {
   Widget makeInput({label, obscureText = false}) {
     return Column(
       children: <Widget> [
-        Text(label, style: const TextStyle(
+        Text(label, style:  GoogleFonts.poppins(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           color: Colors.white
@@ -128,7 +130,7 @@ class GrandparentLogin extends StatelessWidget {
         TextField(
           obscureText: obscureText,
           cursorColor: Colors.white,
-          style: const TextStyle(color: Colors.white),
+          style:  GoogleFonts.poppins(color: Colors.white),
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(

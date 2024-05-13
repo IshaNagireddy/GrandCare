@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class NewGrandparent extends StatefulWidget {
@@ -45,15 +46,15 @@ class _NewGrandparentState extends State<NewGrandparent> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget> [
-                const Column(
+                 Column(
                   children: <Widget>[
-                    Text("New Grandparent", style: TextStyle(
+                    Text("New Grandparent", style: GoogleFonts.poppins(
                       fontSize: 30,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),),
                     SizedBox(height: 20),
-                    Text("Sign up for a new account", style: TextStyle(
+                    Text("Sign up for a new account", style: GoogleFonts.poppins(
                       fontSize: 15,
                       color: Colors.white
                     ),),
@@ -104,7 +105,7 @@ class _NewGrandparentState extends State<NewGrandparent> {
                       borderRadius: BorderRadius.circular(50)
                     ),
 
-                    child: const Text("Submit Information", style: TextStyle(
+                    child:  Text("Submit Information", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),),
@@ -124,7 +125,7 @@ class _NewGrandparentState extends State<NewGrandparent> {
   Widget makeInput({label, obscureText = false, fieldType}) {
     return Column(
       children: <Widget> [
-        Text(label, style: const TextStyle(
+        Text(label, style:  GoogleFonts.poppins(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           color: Colors.white
@@ -134,7 +135,7 @@ class _NewGrandparentState extends State<NewGrandparent> {
           controller: fieldType,
           obscureText: obscureText,
           cursorColor: Colors.white,
-          style: const TextStyle(color: Colors.white),
+          style:  GoogleFonts.poppins(color: Colors.white),
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
