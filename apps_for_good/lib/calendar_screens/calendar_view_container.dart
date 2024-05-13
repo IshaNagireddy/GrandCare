@@ -1,7 +1,10 @@
 import 'package:GrandCare/calendar_screens/dashboard_screen.dart';
 import 'package:GrandCare/login_choice.dart';
 import 'package:GrandCare/secrets.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import 'package:GrandCare/calendar_screens/calendar_client.dart';
@@ -31,13 +34,19 @@ class CalendarViewContainer extends StatefulWidget {
 }
 
 class _CalendarViewContainerState extends State<CalendarViewContainer> {
-
   final controller = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
   ..loadRequest(Uri.parse('https://calendar.google.com/calendar/embed?src=massacademywpi%40gmail.com&ctz=America%2FNew_York'));
 
   Widget build(BuildContext context) {
-     return Scaffold(
+     return Scaffold(appBar: AppBar(
+        title: Text('Calendar & Appointments', style: GoogleFonts.poppins(
+                 fontSize: 12,),),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       backgroundColor: const Color.fromARGB(255, 14, 37, 57),
       body: SafeArea(
         child: Container(
@@ -90,7 +99,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
-                      // gettingAccount();
+                      gettingAccount();
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardScreen()));},
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
@@ -114,21 +123,18 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
       ),
     );
   }
-
-  // void gettingAccount() async {
-  // var clientID = ClientId(Secret.getId());
-  // const scopes = [cal.CalendarApi.calendarScope];
-  // await clientViaUserConsent(clientID, scopes, prompt).then((AuthClient client) async {
-  //   CalendarClient.calendar = cal.CalendarApi(client);
-  // });
+  
+  void gettingAccount() async {
+    // Initialize GoogleSignIn with the scopes you want:
+    final GoogleSignIn googleSignIn = GoogleSignIn(
+        scopes: <String>[
+            'email'
+        ],
+    );
     
-  // }
+    // Get the user after successful sign in
+    var googleUser = await googleSignIn.signIn();
 
-  // void prompt(String url) async {
-  // if (await canLaunchUrl(Uri(path: url))) {
-  //   await launchUrl(Uri(path: url));
-  // } else {
-  //   throw 'Could not launch $url';
-  // }
-//}
+    
+}
 }

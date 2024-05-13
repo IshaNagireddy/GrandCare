@@ -9,23 +9,36 @@ class IntroPage3 extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'lorem ipsum',
-              style: GoogleFonts.poppins(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 30,
-                color: Color.fromARGB(255, 229, 243, 255),
+            children: [
+              Image(
+              image: AssetImage("assets/loginImage3.png"),
+              height: 300,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'We hope that you will find this app helpful!',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  textStyle: Theme.of(context).textTheme.displayLarge,
+                  fontSize: 30,
+                  color: const Color.fromARGB(255, 229, 243, 255),
+                ),
               ),
             ),
-            Text(
-              'lorem ipsum dolor sit amet ads;ughaslruffdngldksjgnsldj fjansdl gfa idgalkjg aljg ljdasn alje gaeijn aljkg a dig al aglhgalj a glafgudglu andjlg aiglakj a djlglakjndljnga',
-              style: GoogleFonts.poppins(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 15,
-                color: Color.fromARGB(255, 229, 243, 255),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Feel free to reach out to the CMAA support staff if you have any questions or concerns!',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  textStyle: Theme.of(context).textTheme.displayLarge,
+                  fontSize: 15,
+                  color: const Color.fromARGB(255, 229, 243, 255),
+                ),
               ),
             ),
+        
           ],
         ),
       ),
