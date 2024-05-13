@@ -6,6 +6,7 @@ import 'package:GrandCare/calendar_screens/event_info.dart';
 import 'package:GrandCare/calendar_screens/storage.dart';
 import 'package:GrandCare/secrets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -39,10 +40,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         iconTheme: const IconThemeData(
           color: Colors.grey, //change your color here
         ),
-        title: const Text(
+        title: Text(
           'Event Details',
-          style: TextStyle(
-            color: CustomColor.dark_blue,
+          style: GoogleFonts.poppins(
+          
             fontSize: 22,
           ),
         ),
@@ -117,7 +118,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   children: [
                                     Text(
                                       event.name,
-                                      style: const TextStyle(
+                                      style:  GoogleFonts.poppins(
                                         color: CustomColor.dark_blue,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 22,
@@ -129,7 +130,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       event.description,
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
+                                      style: GoogleFonts.poppins(
                                         color: Colors.black38,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
@@ -141,7 +142,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
                                       child: Text(
                                         event.link,
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                           color: CustomColor.dark_blue.withOpacity(0.5),
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
@@ -164,9 +165,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           children: [
                                             Text(
                                               dateString,
-                                              style: const TextStyle(
+                                              style:  GoogleFonts.poppins(
                                                 color: CustomColor.dark_cyan,
-                                                fontFamily: 'OpenSans',
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16,
                                                 letterSpacing: 1.5,
@@ -174,9 +174,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                             ),
                                             Text(
                                               '$startTimeString - $endTimeString',
-                                              style: const TextStyle(
+                                              style:  GoogleFonts.poppins(
                                                 color: CustomColor.dark_cyan,
-                                                fontFamily: 'OpenSans',
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16,
                                                 letterSpacing: 1.5,
@@ -196,12 +195,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     },
                   );
                 } else {
-                  return const Center(
+                  return Center(
                     child: Text(
                       'No Events',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black38,
-                        fontFamily: 'Raleway',
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,
                       ),

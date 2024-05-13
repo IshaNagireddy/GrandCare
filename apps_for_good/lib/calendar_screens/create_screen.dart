@@ -1,12 +1,17 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:GrandCare/calendar_screens/event_info.dart';
 import 'package:GrandCare/calendar_screens/color.dart';
 import 'package:GrandCare/calendar_screens/calendar_client.dart';
 import 'package:GrandCare/calendar_screens/storage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:googleapis/calendar/v3.dart' as calendar;
 import 'package:intl/intl.dart';
 
 class CreateScreen extends StatefulWidget {
+  const CreateScreen({super.key});
+
   @override
   _CreateScreenState createState() => _CreateScreenState();
 }
@@ -163,13 +168,12 @@ class _CreateScreenState extends State<CreateScreen> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.grey, //change your color here
         ),
         title: Text(
           'Create Event',
-          style: TextStyle(
-            color: CustomColor.dark_blue,
+          style: GoogleFonts.poppins(
             fontSize: 22,
           ),
         ),
@@ -179,7 +183,7 @@ class _CreateScreenState extends State<CreateScreen> {
           Container(
             color: Colors.white,
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Padding(
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 child: Column(
@@ -187,40 +191,37 @@ class _CreateScreenState extends State<CreateScreen> {
                   children: [
                     Text(
                       'This will add a new event to the events list. You can also add video conferencing option and choose to notify the attendees of this event.',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontFamily: 'Raleway',
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       'You will have access to modify or remove the event afterwards.',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.grey,
-                        fontFamily: 'Raleway',
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     RichText(
                       text: TextSpan(
                         text: 'Select Date',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: '*',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -228,48 +229,48 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       cursorColor: CustomColor.sea_blue,
                       controller: textControllerDate,
                       textCapitalization: TextCapitalization.characters,
                       onTap: () => _selectDate(context),
                       readOnly: true,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'eg: September 10, 2020',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                         errorText: isEditingDate && textControllerDate.text != null
@@ -277,27 +278,27 @@ class _CreateScreenState extends State<CreateScreen> {
                                 ? null
                                 : 'Date can\'t be empty'
                             : null,
-                        errorStyle: TextStyle(
+                        errorStyle: GoogleFonts.poppins(
                           fontSize: 12,
                           color: Colors.redAccent,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'Start Time',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: '*',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -305,47 +306,47 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       cursorColor: CustomColor.sea_blue,
                       controller: textControllerStartTime,
                       onTap: () => _selectStartTime(context),
                       readOnly: true,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'eg: 09:30 AM',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                         errorText: isEditingStartTime && textControllerStartTime.text != null
@@ -353,27 +354,27 @@ class _CreateScreenState extends State<CreateScreen> {
                                 ? null
                                 : 'Start time can\'t be empty'
                             : null,
-                        errorStyle: TextStyle(
+                        errorStyle: GoogleFonts.poppins(
                           fontSize: 12,
                           color: Colors.redAccent,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'End Time',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: '*',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -381,47 +382,47 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       cursorColor: CustomColor.sea_blue,
                       controller: textControllerEndTime,
                       onTap: () => _selectEndTime(context),
                       readOnly: true,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'eg: 11:30 AM',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                         errorText: isEditingEndTime && textControllerEndTime.text != null
@@ -429,27 +430,27 @@ class _CreateScreenState extends State<CreateScreen> {
                                 ? null
                                 : 'End time can\'t be empty'
                             : null,
-                        errorStyle: TextStyle(
+                        errorStyle: GoogleFonts.poppins(
                           fontSize: 12,
                           color: Colors.redAccent,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'Title',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: '*',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -457,7 +458,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       enabled: true,
                       cursorColor: CustomColor.sea_blue,
@@ -475,65 +476,65 @@ class _CreateScreenState extends State<CreateScreen> {
                         textFocusNodeTitle.unfocus();
                         FocusScope.of(context).requestFocus(textFocusNodeDesc);
                       },
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.grey, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'eg: Birthday party of John',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                         errorText: isEditingTitle ? _validateTitle(currentTitle) : null,
-                        errorStyle: TextStyle(
+                        errorStyle: GoogleFonts.poppins(
                           fontSize: 12,
                           color: Colors.redAccent,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'Description',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: ' ',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -541,7 +542,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       enabled: true,
                       maxLines: null,
@@ -559,60 +560,60 @@ class _CreateScreenState extends State<CreateScreen> {
                         textFocusNodeDesc.unfocus();
                         FocusScope.of(context).requestFocus(textFocusNodeLocation);
                       },
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.grey, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'eg: Some information about this event',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'Location',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: ' ',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -620,7 +621,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     TextField(
                       enabled: true,
                       cursorColor: CustomColor.sea_blue,
@@ -637,60 +638,60 @@ class _CreateScreenState extends State<CreateScreen> {
                         textFocusNodeLocation.unfocus();
                         FocusScope.of(context).requestFocus(textFocusNodeAttendee);
                       },
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         color: Colors.black87,
-                        fontWeight: FontWeight.bold,
+                        
                         letterSpacing: 0.5,
                       ),
-                      decoration: new InputDecoration(
-                        disabledBorder: OutlineInputBorder(
+                      decoration: InputDecoration(
+                        disabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.grey, width: 1),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                         ),
-                        errorBorder: OutlineInputBorder(
+                        errorBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                           borderSide: BorderSide(color: Colors.redAccent, width: 2),
                         ),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                           left: 16,
                           bottom: 16,
                           top: 16,
                           right: 16,
                         ),
                         hintText: 'Place of the event',
-                        hintStyle: TextStyle(
+                        hintStyle: GoogleFonts.poppins(
                           color: Colors.grey.withOpacity(0.6),
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 0.5,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     RichText(
                       text: TextSpan(
                         text: 'Attendees',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           color: CustomColor.dark_cyan,
-                          fontFamily: 'Raleway',
+                          
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                          
                           letterSpacing: 1,
                         ),
                         children: <TextSpan>[
                           TextSpan(
                             text: ' ',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.red,
                               fontSize: 28,
                             ),
@@ -698,10 +699,10 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     ListView.builder(
                       shrinkWrap: true,
-                      physics: PageScrollPhysics(),
+                      physics: const PageScrollPhysics(),
                       itemCount: attendeeEmails.length,
                       itemBuilder: (context, index) {
                         return Padding(
@@ -711,14 +712,14 @@ class _CreateScreenState extends State<CreateScreen> {
                             children: [
                               Text(
                                 attendeeEmails[index].email!,
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                   color: CustomColor.neon_green,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
                                 ),
                               ),
                               IconButton(
-                                icon: Icon(Icons.close),
+                                icon: const Icon(Icons.close),
                                 onPressed: () {
                                   setState(() {
                                     attendeeEmails.removeAt(index);
@@ -731,7 +732,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         );
                       },
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -751,45 +752,45 @@ class _CreateScreenState extends State<CreateScreen> {
                             onSubmitted: (value) {
                               textFocusNodeAttendee.unfocus();
                             },
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               color: Colors.black87,
-                              fontWeight: FontWeight.bold,
+                              
                               letterSpacing: 0.5,
                             ),
-                            decoration: new InputDecoration(
-                              disabledBorder: OutlineInputBorder(
+                            decoration: InputDecoration(
+                              disabledBorder: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                 borderSide: BorderSide(color: Colors.grey, width: 1),
                               ),
-                              enabledBorder: OutlineInputBorder(
+                              enabledBorder: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                 borderSide: BorderSide(color: CustomColor.sea_blue, width: 1),
                               ),
-                              focusedBorder: OutlineInputBorder(
+                              focusedBorder: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                 borderSide: BorderSide(color: CustomColor.dark_blue, width: 2),
                               ),
-                              errorBorder: OutlineInputBorder(
+                              errorBorder: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                 borderSide: BorderSide(color: Colors.redAccent, width: 2),
                               ),
-                              border: OutlineInputBorder(
+                              border: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
                               ),
-                              contentPadding: EdgeInsets.only(
+                              contentPadding: const EdgeInsets.only(
                                 left: 16,
                                 bottom: 16,
                                 top: 16,
                                 right: 16,
                               ),
                               hintText: 'Enter attendee email',
-                              hintStyle: TextStyle(
+                              hintStyle: GoogleFonts.poppins(
                                 color: Colors.grey.withOpacity(0.6),
-                                fontWeight: FontWeight.bold,
+                                
                                 letterSpacing: 0.5,
                               ),
                               errorText: isEditingEmail ? _validateEmail(currentEmail!) : null,
-                              errorStyle: TextStyle(
+                              errorStyle: GoogleFonts.poppins(
                                 fontSize: 12,
                                 color: Colors.redAccent,
                               ),
@@ -797,7 +798,7 @@ class _CreateScreenState extends State<CreateScreen> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.check_circle,
                             color: CustomColor.sea_blue,
                             size: 35,
@@ -827,17 +828,17 @@ class _CreateScreenState extends State<CreateScreen> {
                       visible: attendeeEmails.isNotEmpty,
                       child: Column(
                         children: [
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 'Notify attendees',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                   color: CustomColor.dark_cyan,
-                                  fontFamily: 'Raleway',
+                                  
                                   fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                  
                                   letterSpacing: 0.5,
                                 ),
                               ),
@@ -855,17 +856,17 @@ class _CreateScreenState extends State<CreateScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Add video conferencing',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             color: CustomColor.dark_cyan,
-                            fontFamily: 'Raleway',
+                            
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            
                             letterSpacing: 0.5,
                           ),
                         ),
@@ -880,7 +881,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Container(
                       width: double.maxFinite,
                       child: MaterialButton(
@@ -1004,22 +1005,22 @@ class _CreateScreenState extends State<CreateScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                          padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
                           child: isDataStorageInProgress
-                              ? SizedBox(
+                              ? const SizedBox(
                                   height: 28,
                                   width: 28,
                                   child: CircularProgressIndicator(
                                     strokeWidth: 2,
-                                    valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+                                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                                   ),
                                 )
                               : Text(
                                   'ADD',
-                                  style: TextStyle(
-                                    fontFamily: 'Raleway',
+                                  style: GoogleFonts.poppins(
+                                    
                                     fontSize: 22,
-                                    fontWeight: FontWeight.bold,
+                                    
                                     color: Colors.white,
                                     letterSpacing: 1.5,
                                   ),
@@ -1034,7 +1035,7 @@ class _CreateScreenState extends State<CreateScreen> {
                           padding: const EdgeInsets.only(top: 8.0),
                           child: Text(
                             errorString,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 12,
                               color: Colors.redAccent,
                             ),
@@ -1042,7 +1043,7 @@ class _CreateScreenState extends State<CreateScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                   ],
                 ),
               ),

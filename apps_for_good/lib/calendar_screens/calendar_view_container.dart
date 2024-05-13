@@ -36,7 +36,7 @@ class CalendarViewContainer extends StatefulWidget {
 class _CalendarViewContainerState extends State<CalendarViewContainer> {
   final controller = WebViewController()
   ..setJavaScriptMode(JavaScriptMode.unrestricted)
-  ..loadRequest(Uri.parse('https://calendar.google.com/calendar/embed?src=massacademywpi%40gmail.com&ctz=America%2FNew_York'));
+  ..loadRequest(Uri.parse('https://calendar.google.com/calendar/embed?src=grandcarecmaa%40gmail.com&ctz=America%2FNew_York'));
 
   Widget build(BuildContext context) {
      return Scaffold(appBar: AppBar(
