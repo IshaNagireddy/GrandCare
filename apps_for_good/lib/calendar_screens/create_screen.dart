@@ -1008,7 +1008,7 @@ class _CreateScreenState extends State<CreateScreen> {
                           padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
                           child: isDataStorageInProgress
                               ? const SizedBox(
-                                  height: 28,
+                                   height: 28,
                                   width: 28,
                                   child: CircularProgressIndicator(
                                     strokeWidth: 2,

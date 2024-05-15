@@ -189,7 +189,11 @@ int selectedIndex = 0;
                       ),
                     ),
          CarouselSlider(
-          options: CarouselOptions(height: 400.0),
+          options: CarouselOptions(height: 400.0,
+    autoPlay: true,
+    autoPlayInterval: Duration(seconds: 3),
+    autoPlayCurve: Curves.fastOutSlowIn,),
+          
           items: dropdownOptions.map((option) => FractionallySizedBox(
             widthFactor: 0.8,
             child: GestureDetector(
@@ -250,6 +254,7 @@ int selectedIndex = 0;
             ),
           )).toList(),
         ),
+        CustomIndicator(currentPage:selectedIndex),
         Container(
                       width:
                           100, // Set the width to make the divider shorter horizontally
@@ -275,6 +280,37 @@ int selectedIndex = 0;
               ),
          ),
       ],
+    );
+  }
+}
+class CustomIndicator extends StatelessWidget {
+  final int currentPage;
+
+  CustomIndicator({required this.currentPage});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: 8,
+      margin: EdgeInsets.only(bottom: 12),
+      width: 144,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        controller: ScrollController(), // Initialize a ScrollController here
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 8,
+            height: 8,
+            margin: EdgeInsets.symmetric(horizontal: 4.0),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: currentPage == index? Colors.white : Colors.grey.withOpacity(0.6),
+            ),
+          );
+        },
+      ),
     );
   }
 }

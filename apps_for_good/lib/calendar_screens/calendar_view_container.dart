@@ -136,7 +136,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
     // Initialize GoogleSignIn with the scopes you want:
     final GoogleSignIn googleSignIn = GoogleSignIn(
         scopes: <String>[
-            'email'
+            'https://www.googleapis.com/auth/calendar'
         ],
     );
     
