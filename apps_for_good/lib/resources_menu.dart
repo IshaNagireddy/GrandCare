@@ -196,6 +196,7 @@ int selectedIndex = 0;
           
           items: dropdownOptions.map((option) => FractionallySizedBox(
             widthFactor: 0.8,
+            
             child: GestureDetector(
               onTap: () {
                 showDialog(

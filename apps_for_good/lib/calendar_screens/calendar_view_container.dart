@@ -1,3 +1,4 @@
+import 'package:GrandCare/calendar_screens/appointments_screen.dart';
 import 'package:GrandCare/calendar_screens/dashboard_screen.dart';
 import 'package:GrandCare/login_choice.dart';
 import 'package:GrandCare/secrets.dart';
@@ -107,8 +108,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                     minWidth: double.infinity,
                     height: 60,
                     onPressed: () {
-                      gettingAccount();
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardScreen()));},
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const AppointmentsViewContainer()));},
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         color: Colors.white,
