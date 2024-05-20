@@ -1,31 +1,8 @@
-import 'package:GrandCare/calendar_screens/appointments_screen.dart';
-import 'package:GrandCare/calendar_screens/dashboard_screen.dart';
-import 'package:GrandCare/login_choice.dart';
-import 'package:GrandCare/secrets.dart';
-import 'package:flutter/foundation.dart';
+import 'package:GrandCare/appointments_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-import 'package:GrandCare/calendar_screens/calendar_client.dart';
-import 'package:GrandCare/calendar_screens/color.dart';
-import 'package:GrandCare/calendar_screens/create_screen.dart';
-import 'package:GrandCare/calendar_screens/edit_screen.dart';
-import 'package:GrandCare/calendar_screens/event_info.dart';
-import 'package:GrandCare/calendar_screens/storage.dart';
-import 'package:GrandCare/secrets.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'package:firebase_core/firebase_core.dart';
-import 'package:googleapis_auth/auth_io.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:googleapis/calendar/v3.dart' as cal;
-import 'dart:io' show Platform;
 
 class CalendarViewContainer extends StatefulWidget {
   const CalendarViewContainer({super.key});
@@ -64,7 +41,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                     fontSize: 30,
                     color: Colors.white
                   ),),
-                  Container(
+                  const SizedBox(
                       
                       width:
                           100, // Set the width to make the divider shorter horizontally
@@ -73,7 +50,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                         height: 20.0, // Adjust the height as needed
                       ),
                     ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Text("Please view the GrandCare appointments calendar and schedule a time for meeting with a counselor that is available.",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(

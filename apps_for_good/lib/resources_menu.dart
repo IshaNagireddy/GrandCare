@@ -1,4 +1,4 @@
-import 'package:GrandCare/calendar_screens/calendar_view_container.dart';
+import 'package:GrandCare/calendar_view_container.dart';
 import 'package:GrandCare/makereq.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -255,7 +255,6 @@ int selectedIndex = 0;
             ),
           )).toList(),
         ),
-        CustomIndicator(currentPage:selectedIndex),
         Container(
                       width:
                           100, // Set the width to make the divider shorter horizontally
