@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class IntroPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
     return Container(
       color: Color.fromARGB(255, 14, 37, 57),
       child: Center(
@@ -21,7 +24,7 @@ class IntroPage3 extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   textStyle: Theme.of(context).textTheme.displayLarge,
-                  fontSize: 30,
+                  fontSize: scaledFontSize,
                   color: const Color.fromARGB(255, 229, 243, 255),
                 ),
               ),
@@ -29,11 +32,11 @@ class IntroPage3 extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'Feel free to reach out to the CMAA support staff if you have any questions or concerns!',
+                'Feel free to reach out to the Senior Connection support staff if you have any questions or concerns!',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   textStyle: Theme.of(context).textTheme.displayLarge,
-                  fontSize: 15,
+                  fontSize: scaledFontSize*.75,
                   color: const Color.fromARGB(255, 229, 243, 255),
                 ),
               ),

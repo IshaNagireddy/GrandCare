@@ -12,7 +12,7 @@ class ResourcesMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('General CMAA Services and Programs',style: GoogleFonts.poppins(),),
+        title: Text('CareExpress Main Page',style: GoogleFonts.poppins(),),
       ),
       body: MyHomePage(),
       backgroundColor: Color.fromARGB(255, 14, 37, 57), // Use MyHomePage as the body of the Scaffold
@@ -56,6 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
 int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
     return Column(
       children: [
          Container(
@@ -74,7 +77,7 @@ int selectedIndex = 0;
                     Text(
                       'ACTIONABLE ITEMS',
                        style: GoogleFonts.poppins(
-                 fontSize: 12, // Adjust the font size as needed
+                 fontSize: scaledFontSize, // Adjust the font size as needed
                         fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 229, 243, 255),
               ),
@@ -109,7 +112,7 @@ int selectedIndex = 0;
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 15,
+                fontSize: scaledFontSize*.75,
                 color: const Color.fromARGB(255, 229, 243, 255),
               ),
             ),
@@ -145,7 +148,7 @@ int selectedIndex = 0;
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 15,
+                fontSize: scaledFontSize*0.75,
                 color: const Color.fromARGB(255, 229, 243, 255),
               ),
             ),
@@ -172,9 +175,9 @@ int selectedIndex = 0;
                       ),
                     ),
                     Text(
-                      'GENERAL CMAA SERVICES & PROGRAMS',
+                      'GENERAL SERVICES & PROGRAMS',
                        style: GoogleFonts.poppins(
-                 fontSize: 12, // Adjust the font size as needed
+                 fontSize: scaledFontSize, // Adjust the font size as needed
                         fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 229, 243, 255),
               ),
@@ -240,7 +243,7 @@ int selectedIndex = 0;
                           option,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: scaledFontSize*0.9,
                             color: selectedIndex == dropdownOptions.indexOf(option)
                              ? Colors.white
                                : Colors.white,
@@ -266,7 +269,7 @@ int selectedIndex = 0;
          Text(
                       'Click on a tile to learn more.',
                        style: GoogleFonts.poppins(
-                 fontSize: 12, // Adjust the font size as needed
+                 fontSize: scaledFontSize*0.75, // Adjust the font size as needed
       
                 color: Color.fromARGB(255, 229, 243, 255),
               ),
@@ -274,7 +277,7 @@ int selectedIndex = 0;
            Text(
                       'Swipe between tiles to see all our services.',
                        style: GoogleFonts.poppins(
-                 fontSize: 12, // Adjust the font size as needed
+                 fontSize: scaledFontSize*0.75, // Adjust the font size as needed
       
                 color: Color.fromARGB(255, 229, 243, 255),
               ),

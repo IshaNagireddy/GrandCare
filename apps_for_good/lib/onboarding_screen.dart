@@ -56,9 +56,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         curve: Curves.easeIn);
                   },
                   child: Text(
-                    'skip',
+                    'Skip',
                     style: GoogleFonts.poppins(
-                        color: Color.fromARGB(255, 229, 243, 255)),
+                        color: Color.fromARGB(255, 229, 243, 255),
+                        fontSize: 20),
+                        
                   ),
                 ),
 
@@ -68,7 +70,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   count: 3,
                   effect: ExpandingDotsEffect(
                     dotColor: Colors.white,
-                    activeDotColor: Colors.white,
+                    activeDotColor: const Color.fromARGB(255, 255, 255, 255),
                   ),
                 ),
 
@@ -87,9 +89,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           );
                         },
                         child: Text(
-                          'done',
+                          'Done',
                           style: GoogleFonts.poppins(
                             color: Color.fromARGB(255, 229, 243, 255),
+                            fontSize: 20,
                           ),
                         ),
                       )
@@ -100,9 +103,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               curve: Curves.easeIn);
                         },
                         child: Text(
-                          'next',
+                          'Next',
                           style: GoogleFonts.poppins(
                             color: Color.fromARGB(255, 229, 243, 255),
+                            fontSize: 20,
                           ),
                         ),
                       )

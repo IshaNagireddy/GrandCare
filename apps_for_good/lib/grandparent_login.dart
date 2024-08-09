@@ -8,6 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 class GrandparentLogin extends StatelessWidget {
   String password = '';
   Widget build(BuildContext context) {
+    final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromARGB(255, 14, 37, 57),
@@ -34,13 +37,13 @@ class GrandparentLogin extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text("Grandparent Login", style: GoogleFonts.poppins(
-                      fontSize: 30,
+                      fontSize: scaledFontSize,
                       color: Colors.white,
                       fontWeight: FontWeight.bold
                     ),),
                     SizedBox(height: 20),
                     Text("Login to your account", style: GoogleFonts.poppins(
-                      fontSize: 15,
+                      fontSize: scaledFontSize*0.75,
                       color: Colors.white
                     ),),
                   ]
@@ -83,7 +86,7 @@ class GrandparentLogin extends StatelessWidget {
 
                     child:Text("Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: scaledFontSize*0.8,
                     ),),
                   ),
                 )
@@ -119,6 +122,7 @@ class GrandparentLogin extends StatelessWidget {
   }
 
   Widget makeInput({label, obscureText = false}) {
+
     return Column(
       children: <Widget> [
         Text(label, style:  GoogleFonts.poppins(

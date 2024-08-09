@@ -17,6 +17,9 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
   ..loadRequest(Uri.parse('https://calendar.google.com/calendar/embed?src=grandcarecmaa%40gmail.com&ctz=America%2FNew_York'));
 
   Widget build(BuildContext context) {
+     final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
      return Scaffold(appBar: AppBar(
         title: Text('Calendar & Appointments', style: GoogleFonts.poppins(
                  ),),
@@ -38,7 +41,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
                   Text('GrandCare Calendar', style: GoogleFonts.poppins(
-                    fontSize: 30,
+                    fontSize: scaledFontSize,
                     color: Colors.white
                   ),),
                   const SizedBox(
@@ -55,7 +58,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: scaledFontSize*0.75
                   ),),
         
                 ],
@@ -76,7 +79,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: scaledFontSize*.75
                   ),),
 
                     SizedBox(height: 20,),
@@ -95,7 +98,7 @@ class _CalendarViewContainerState extends State<CalendarViewContainer> {
 
                     child:  Text("Schedule an Appointment", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: scaledFontSize*0.8,
                       color: Colors.white,
                     ),),
                   ),

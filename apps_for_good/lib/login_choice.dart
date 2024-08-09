@@ -6,6 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LoginChoice extends StatelessWidget {
   Widget build(BuildContext context) {
+    final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 14, 37, 57),
       body: SafeArea(
@@ -19,9 +22,9 @@ class LoginChoice extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget> [
-                  Text('Welcome to GrandCare!',
+                  Text('Welcome to CareExpress!',
                   textAlign: TextAlign.center, style: GoogleFonts.poppins(
-                    fontSize: 28.25,
+                    fontSize: scaledFontSize*.95,
                     color: Colors.white
                   ),),
                   SizedBox(height: 20,),
@@ -29,7 +32,7 @@ class LoginChoice extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.poppins(
                     color: Colors.white,
-                    fontSize: 15
+                    fontSize: scaledFontSize*0.75
                   ),),
                 ],
               ),
@@ -57,7 +60,7 @@ class LoginChoice extends StatelessWidget {
 
                     child:  Text("Admin Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
-                      fontSize: 18,
+                      fontSize: scaledFontSize*0.8,
                       color: Colors.white,
                     ),),
                   ),
@@ -89,7 +92,7 @@ class LoginChoice extends StatelessWidget {
 
                     child:  Text("Grandparent Login", style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18
+                      fontSize: scaledFontSize*.8
                     ),),
                   ),
                   ),

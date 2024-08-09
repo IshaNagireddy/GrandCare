@@ -40,6 +40,9 @@ class _AppointmentsViewContainer extends State<AppointmentsViewContainer> {
     ..loadRequest(Uri.parse('https://calendar.app.google/bnm9LPYmfSvCS8oE9'));
 
   Widget build(BuildContext context) {
+    final TextScaler textScaler = MediaQuery.textScalerOf(context);
+    final double baseFontSize = 30;
+    final double scaledFontSize = textScaler.scale(baseFontSize);
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -66,7 +69,7 @@ class _AppointmentsViewContainer extends State<AppointmentsViewContainer> {
                   Text(
                     'GrandCare Calendar',
                     style:
-                        GoogleFonts.poppins(fontSize: 30, color: Colors.white),
+                        GoogleFonts.poppins(fontSize: scaledFontSize, color: Colors.white),
                   ),
                   Container(
                     width:
@@ -83,7 +86,7 @@ class _AppointmentsViewContainer extends State<AppointmentsViewContainer> {
                     "Please view the GrandCare appointments calendar and schedule a time for meeting with a counselor that is available.",
                     textAlign: TextAlign.center,
                     style:
-                        GoogleFonts.poppins(color: Colors.white, fontSize: 15),
+                        GoogleFonts.poppins(color: Colors.white, fontSize: scaledFontSize*0.75),
                   ),
                 ],
               ),
@@ -101,7 +104,7 @@ class _AppointmentsViewContainer extends State<AppointmentsViewContainer> {
                     "Please choose one of the times aboe to schedule your appointment. An email will automatically be sent to you with your meeting details.",
                     textAlign: TextAlign.center,
                     style:
-                        GoogleFonts.poppins(color: Colors.white, fontSize: 15),
+                        GoogleFonts.poppins(color: Colors.white, fontSize: scaledFontSize*0.75),
                   ),
                 ],
               ),
