@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "apps_for_good",
+            "cwd": "apps_for_good",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "apps_for_good (profile mode)",
+            "cwd": "apps_for_good",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "apps_for_good (release mode)",
+            "cwd": "apps_for_good",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

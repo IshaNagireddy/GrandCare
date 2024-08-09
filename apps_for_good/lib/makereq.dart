@@ -48,7 +48,11 @@ class FormScreenState extends State<Requests_Page> {
     return Scaffold(
       
       appBar: AppBar(
+<<<<<<< Updated upstream
         title: Text('Requests Page'),
+=======
+        title: Text('Inquiry Page', style: GoogleFonts.poppins()),
+>>>>>>> Stashed changes
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
@@ -117,7 +121,7 @@ class FormScreenState extends State<Requests_Page> {
                       style: TextStyle(color: Color.fromARGB(255, 229, 243, 255),),
                       value: _town,
                        dropdownColor: const Color.fromARGB(255, 52, 52, 52),
-                      decoration: InputDecoration(labelText: 'Choose a Service*', labelStyle:  GoogleFonts.poppins(textStyle: TextStyle(color: Color.fromARGB(255, 229, 243, 255),),),),
+                      decoration: InputDecoration(labelText: 'Town*', labelStyle:  GoogleFonts.poppins(textStyle: TextStyle(color: Color.fromARGB(255, 229, 243, 255),),),),
                       items: <String>[
                         'Ashburnham',
                         'Ashby',
